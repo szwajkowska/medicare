@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Główna</title>
+</head>
+<body>
+<h1>Główna</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<h1>Wybierz specjalizację:</h1>
+<select>
+    <option>Opcja 1</option>
+    <option>Opcja 2</option>
+    <option>Opcja 3</option>
+</select>
+</body>

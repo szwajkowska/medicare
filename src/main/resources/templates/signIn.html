@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Sign in</title>
+</head>
+<body>
+<p>Give your name, email and password</p>
+<form action="#" th:action="@{/signIn}" th:object="${userModel}"
+      method="post">
+
+    <table>
+        <tr>
+            <td>Username:</td>
+            <!--<td><input type="text" name="username"></td>-->
+            <td><input type="text" th:field="*{username}" /></td>
+            <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <!--<td><input type="password" name = "password"></td>-->
+            <td><input type="password" th:field="*{password}" /></td>
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+        </tr>
+        <tr>
+            <td>Confirm password:</td>
+            <!--<td><input type="password" name="confPassword"></td>-->
+            <td><input type="password" th:field="*{confPassword}" /></td>
+            <td th:if="${#fields.hasErrors('confPassword')}" th:errors="*{confPassword}">ConfPassword Error</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <!--<td><input type="text" name="email"></td>-->
+            <td><input type="email" th:field="*{email}" /></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Sign in</button></td>
+        </tr>
+    </table>
+</form>
+<!--<form th:action="@{/users}" method="post">-->
+<!--<div><label> User Name : <input type="text" name="username"/> </label></div>-->
+<!--<div><label> Password: <input type="password" name="password"/> </label></div>-->
+<!--<div><input type="submit" value="Sign In"/></div>-->
+<!--</form>-->
+</body>
+</html>
