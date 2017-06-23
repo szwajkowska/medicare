@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Admin </title>
+</head>
+<body>
+<h1>Dodaj specjalizację:</h1>
+
+    <form th:action="@{/admin}" method="post">
+        <div><label> Specjalizacja:<input type="text" name="specializationName"/> </label></div>
+        <div><input type="submit" value="Add"/></div>
+</form>
+<h1>Specjalizacje:</h1>
+<ol>
+    <li th:each="prod : ${specializations}">
+        <label for ="specialization"><p th:text="${prod.specializationName}"></p></label>
+        <!--czemu etykieta i input nie są w jednej linii?-->
+        <form th:action="@{/admin}" method="delete">
+            <input type = submit value="delete" id="specialization">
+
+        </form>
+
+    </li>
+</ol>
+
+</body>
+</html>
+
+<!--<ol>-->
+
+    <!--<li th:each="prod : ${notes}">-->
+
+        <!--<form action="/test/id" th:action="@{'/test/'+${prod.id}}" method="post">-->
+            <!--<label for="note">-->
+                <!--<a th:href="@{'/test/'+${prod.id}}"  th:text="${prod.body}"></a>-->
+            <!--</label>-->
+            <!--<input type="submit" value="delete" id="note">-->
+        <!--</form>-->
+
+
+    <!--</li>-->
+
+<!--</ol>-->

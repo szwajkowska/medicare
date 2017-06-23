@@ -18,6 +18,8 @@ public class Specialization {
         this.specializationName = specializationName;
     }
 
+    public Specialization(){}
+
     public Specialization(String specializationName) {
         this.specializationName = specializationName;
     }
