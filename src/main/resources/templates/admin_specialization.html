@@ -3,23 +3,30 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Admin </title>
+    <script type="text/javascript" src="/delete.js"></script>
 </head>
 <body>
+<div th:if="${param.specializationDeleted}">
+    Usunięto specjalizację
+</div>
+<div th:if="${specializationName}">
+    Dodano specjalizację: <span th:text="${specializationName}"></span>
+</div>
 <h1>Dodaj specjalizację:</h1>
 
-    <form th:action="@{/admin}" method="post">
+    <form th:action="@{/admin/specialization}" method="post">
         <div><label> Specjalizacja:<input type="text" name="specializationName"/> </label></div>
         <div><input type="submit" value="Add"/></div>
 </form>
 <h1>Specjalizacje:</h1>
 <ol>
     <li th:each="prod : ${specializations}">
-        <label for ="specialization"><p th:text="${prod.specializationName}"></p></label>
-        <!--czemu etykieta i input nie są w jednej linii?-->
-        <form th:action="@{/admin}" method="delete">
-            <input type = submit value="delete" id="specialization">
-
-        </form>
+             <!--<form th:action="@{'/admin/'+${prod.id}}" th:method="delete">-->
+            <label for ="id"><span th:text="${prod.specializationName}"></span><span th:text="${prod.id}"></span></label>
+            <button th:onclick="'sendSpecializationDelete(\'' + ${prod.id} + '\')'" id="id">
+                Usuń
+</button>
+        <!--</form>-->
 
     </li>
 </ol>

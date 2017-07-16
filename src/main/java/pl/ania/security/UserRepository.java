@@ -1,9 +1,8 @@
 package pl.ania.security;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import pl.ania.security.User;
+import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends MongoRepository<User, String>{
+public interface UserRepository extends CrudRepository<User, String> {
 
     User findByUsername(String username);
 }

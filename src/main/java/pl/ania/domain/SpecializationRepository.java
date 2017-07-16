@@ -1,7 +1,11 @@
 package pl.ania.domain;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
 
-interface SpecializationRepository extends MongoRepository<Specialization, String> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+
+interface SpecializationRepository extends JpaRepository<Specialization, String> {
+
+
 
 }

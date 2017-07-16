@@ -2,18 +2,42 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="pl-PL">
 
 <head>
+    <script type="text/javascript" src="/getDoctors.js"></script>
     <meta charset="UTF-8">
     <title>Główna</title>
 </head>
 <body>
 <h1>Główna</h1>
+<span>Uzytkownik:</span><span th:text="${username}"></span>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
+
+<p><a href="admin">admin</a></p>
 <h1>Wybierz specjalizację:</h1>
-<select>
-    <option>Opcja 1</option>
-    <option>Opcja 2</option>
-    <option>Opcja 3</option>
+<select onchange="getDoctors(this.value)">
+    <option th:each="prod : ${specializations}"
+            th:text="${prod.specializationName}"
+            th:value="${prod.id}" ></option>
 </select>
+<div id="doctors"> </div>
+
 </body>
+
+<!--<ol>-->
+<!--<select th:field="*{paymentMethod}" th:remove="all-but-first">-->
+    <!--<option th:each="paymentMethod : ${paymentMethods}"-->
+            <!--th:value="${paymentMethod}" th:text="${paymentMethod.description}">Credit card</option>-->
+<!--<li th:each="prod : ${notes}">-->
+
+<!--<form action="/test/id" th:action="@{'/test/'+${prod.id}}" method="post">-->
+<!--<label for="note">-->
+<!--<a th:href="@{'/test/'+${prod.id}}"  th:text="${prod.body}"></a>-->
+<!--</label>-->
+<!--<input type="submit" value="delete" id="note">-->
+<!--</form>-->
+
+
+<!--</li>-->
+
+<!--</ol>-->

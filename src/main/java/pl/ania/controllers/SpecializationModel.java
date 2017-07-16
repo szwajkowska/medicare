@@ -1,4 +1,4 @@
-package pl.ania.domain;
+package pl.ania.controllers;
 
 public class SpecializationModel {
 

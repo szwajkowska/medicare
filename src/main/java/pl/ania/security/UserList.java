@@ -2,7 +2,6 @@ package pl.ania.security;
 
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -22,7 +21,7 @@ public class UserList {
         return Optional.ofNullable(userRepository.findByUsername(username));
     }
 
-    public List<User> showAllUsers(){
+    public Iterable<User> showAllUsers(){
         return userRepository.findAll();
     }
 }

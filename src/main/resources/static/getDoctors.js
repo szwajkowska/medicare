@@ -1,0 +1,27 @@
+function getDoctors(id){
+    var req = new XMLHttpRequest();
+    req.open('GET', '/doctors?specializationId=' + id, true);
+    req.onreadystatechange = function(){
+    if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
+        var doctors = JSON.parse(req.responseText);
+
+        var doc = document.getElementById('doctors')
+        while (doc.firstChild) {
+            doc.removeChild(doc.firstChild);
+        }
+        var sel = document.createElement('select')
+
+        doctors.forEach(function(doctor) {
+                var opt = document.createElement('option')
+                opt.text = doctor.firstName + ' ' + doctor.lastName;
+                opt.value = doctor.id;
+                sel.append(opt);
+        });
+        if(doctors.length > 0 ) {
+        doc.append(sel);
+        }
+
+    }};
+    req.send(null);
+        
+}

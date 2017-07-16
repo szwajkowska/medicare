@@ -1,16 +1,15 @@
 package pl.ania.security;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Entity;
 
-@Document(collection = "users")
+@Entity
 public class User {
 
     private String username;
     private String password;
     private String email;
 
-    @Id
+    @javax.persistence.Id
     private String id;
 
 
