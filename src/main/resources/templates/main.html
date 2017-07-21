@@ -16,28 +16,12 @@
 <p><a href="admin">admin</a></p>
 <h1>Wybierz specjalizację:</h1>
 <select onchange="getDoctors(this.value)">
-    <option th:each="prod : ${specializations}"
-            th:text="${prod.specializationName}"
-            th:value="${prod.id}" ></option>
+    <option></option>
+    <option th:each="specialization : ${specializations}"
+            th:text="${specialization.specializationName}"
+            th:value="${specialization.id}" ></option>
 </select>
 <div id="doctors"> </div>
 
 </body>
 
-<!--<ol>-->
-<!--<select th:field="*{paymentMethod}" th:remove="all-but-first">-->
-    <!--<option th:each="paymentMethod : ${paymentMethods}"-->
-            <!--th:value="${paymentMethod}" th:text="${paymentMethod.description}">Credit card</option>-->
-<!--<li th:each="prod : ${notes}">-->
-
-<!--<form action="/test/id" th:action="@{'/test/'+${prod.id}}" method="post">-->
-<!--<label for="note">-->
-<!--<a th:href="@{'/test/'+${prod.id}}"  th:text="${prod.body}"></a>-->
-<!--</label>-->
-<!--<input type="submit" value="delete" id="note">-->
-<!--</form>-->
-
-
-<!--</li>-->
-
-<!--</ol>-->

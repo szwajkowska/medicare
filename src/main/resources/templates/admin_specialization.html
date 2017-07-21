@@ -6,6 +6,7 @@
     <script type="text/javascript" src="/delete.js"></script>
 </head>
 <body>
+<p>Wróć do <a href="/admin">admin</a></p>
 <div th:if="${param.specializationDeleted}">
     Usunięto specjalizację
 </div>
@@ -20,10 +21,10 @@
 </form>
 <h1>Specjalizacje:</h1>
 <ol>
-    <li th:each="prod : ${specializations}">
+    <li th:each="specialization : ${specializations}">
              <!--<form th:action="@{'/admin/'+${prod.id}}" th:method="delete">-->
-            <label for ="id"><span th:text="${prod.specializationName}"></span><span th:text="${prod.id}"></span></label>
-            <button th:onclick="'sendSpecializationDelete(\'' + ${prod.id} + '\')'" id="id">
+            <label for ="id"><span th:text="${specialization.specializationName}"></span></label>
+            <button th:onclick="'sendSpecializationDelete(\'' + ${specialization.id} + '\')'" id="id">
                 Usuń
 </button>
         <!--</form>-->

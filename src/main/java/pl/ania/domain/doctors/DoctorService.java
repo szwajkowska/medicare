@@ -33,7 +33,7 @@ public class DoctorService {
     }
 
     public List<Doctor> showDoctors(List<Specialization> specializations){
-        return StreamSupport.stream(doctorRepository.findAll().spliterator(), false)
+        return doctorRepository.findAll().stream()
                 .filter(e->e.getSpecializations().equals(specializations))
                 .collect(Collectors.toList());
     }

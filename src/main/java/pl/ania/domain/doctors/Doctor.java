@@ -1,9 +1,10 @@
 package pl.ania.domain.doctors;
 
-import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.*;
 import pl.ania.domain.Specialization;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,6 @@ public class Doctor {
     @JoinTable(name = "doctor_specialization",
             joinColumns = @JoinColumn(name = "doctor_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "specialization_id", referencedColumnName = "id"))
-    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     private List<Specialization> specializations;
 
     public Doctor(String firstName, String lastName, String id, List<Specialization> specializations) {

@@ -1,6 +1,7 @@
 package pl.ania.security;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class User {
@@ -9,7 +10,7 @@ public class User {
     private String password;
     private String email;
 
-    @javax.persistence.Id
+    @Id
     private String id;
 
 

@@ -20,9 +20,7 @@ public class DoctorsController {
     @ResponseBody//response bo zwraca odpowiedź
     @GetMapping
     List<DoctorResponse> doctorsBySpecializationId(@RequestParam String specializationId){//request bo przychodzi string z przeglądarki
-        return specializationList.findById(specializationId).getDoctors()
-                .stream()
-                .map(d -> new DoctorResponse(d.getId(), d.getFirstName(), d.getLastName()))
-                .collect(Collectors.toList());
+        return specializationList.findDoctorsBySpecializationId(specializationId);
     }
+    //czy metoda findDoctors... powinna być w specializationList czy w doctorService?
 }

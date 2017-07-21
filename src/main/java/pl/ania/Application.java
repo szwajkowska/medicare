@@ -1,6 +1,5 @@
 package pl.ania;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -8,9 +7,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-
 import java.nio.charset.StandardCharsets;
-
 
 @SpringBootApplication
 public class Application {

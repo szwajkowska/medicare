@@ -2,20 +2,24 @@ package pl.ania.security;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.http.MediaType;
 
 public class UserModel {
 
+
+    private static final String MESSAGE = "length must have 3 or more chars";
+
     @NotEmpty(message = "field can't be empty")
-    @Length(min = 3, message = "length must have 3 or more chars")
+    @Length(min = 3, message = MESSAGE)
     private String username;
-    @Length(min = 3, message = "length must have 3 or more chars")
+
+    @Length(min = 3, message = MESSAGE)
     private String password;
 
-    @Length(min = 3, message = "length must have 3 or more chars")
+    @Length(min = 3, message = MESSAGE)
     private String confPassword;
 
     private String email;
-
 
     public String getUsername() {
         return username;

@@ -20,8 +20,6 @@ public class UserList {
     public Optional<User> getUser(String username) {
         return Optional.ofNullable(userRepository.findByUsername(username));
     }
-
-    public Iterable<User> showAllUsers(){
-        return userRepository.findAll();
-    }
 }
+
+
