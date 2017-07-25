@@ -1,0 +1,5 @@
+spring.jpa.hibernate.ddl-auto: update
+spring.datasource.url: jdbc:mysql://localhost:3306/medicare
+spring.datasource.username: root
+spring.datasource.password: ania90
+spring.jpa.show-sql: true

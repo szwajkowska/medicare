@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Admin </title>
+    <script type="text/javascript" src="/delete.js"></script>
+</head>
+<body>
+<p><a href="/">Strona główna</a></p>
+<p>Wróć do <a href="/admin">admin</a></p>
+<div th:if="${param.doctorDeleted}">
+    Usunięto lekarza
+</div>
+<div th:if="${lastName}">
+    Dodano lekarza: <span th:text="${firstName} + ' ' + ${lastName}"></span>
+    do specjalizacji: <span th:text="${specializationName}"></span>
+</div>
+<h1>Wybierz specjalizację:</h1>
+<select name="specializationId" form="newDoctor">
+    <option th:each="specialization : ${specializations}"
+            th:text="${specialization.specializationName}"
+            th:value="${specialization.id}">
+
+    </option>
+</select>
+<h1>Dodaj lekarza:</h1>
+
+<form id="newDoctor" th:action="@{/admin/doctor}" method="post">
+    <div><label> Imię lekarza:<input type="text" name="firstName"/> </label></div>
+    <div><label> Nazwisko lekarza:<input type="text" name="lastName"/> </label></div>
+    <div><input type="submit" value="Add"/></div>
+</form>
+
+<ol>
+    <li th:each="specialization : ${specializations}">
+        <span th:text="${specialization.specializationName}"></span>
+        <ul>
+            <li th:each="doc : ${specialization.doctors}">
+                <label for="id">
+                    <span th:text="${doc.firstName} + ' ' + ${doc.lastName}"></span>
+                </label>
+                <button th:onclick="'sendDoctorDelete(\'' + ${doc.id} + '\')'" id="id">
+                    Usuń
+                </button>
+            </li>
+
+        </ul>
+
+    </li>
+</ol>
+
+</body>
+</html>

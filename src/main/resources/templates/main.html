@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl-PL">
+<head>
+    <script type="text/javascript" src="/getDoctors.js"></script>
+    <meta charset="UTF-8">
+    <title>Główna</title>
+</head>
+<body>
+<h1>Główna</h1>
+<span>Uzytkownik:</span><span th:text="${username}"></span>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+<p><a href="admin">admin</a></p>
+<h1>Wybierz specjalizację:</h1>
+<select onchange="getDoctors(this.value)">
+    <option></option>
+    <option th:each="specialization : ${specializations}"
+            th:text="${specialization.specializationName}"
+            th:value="${specialization.id}" ></option>
+</select>
+<div id="doctors"> </div>
+</body>
+</html>
+

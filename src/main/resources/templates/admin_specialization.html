@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Admin </title>
+    <script type="text/javascript" src="/delete.js"></script>
+</head>
+<body>
+<p><a href="/">Strona główna</a></p>
+<p>Wróć do <a href="/admin">admin</a></p>
+<div th:if="${param.specializationDeleted}">
+    Usunięto specjalizację
+</div>
+<div th:if="${specializationName}">
+    Dodano specjalizację: <span th:text="${specializationName}"></span>
+</div>
+<h1>Dodaj specjalizację:</h1>
+
+    <form th:action="@{/admin/specialization}" method="post">
+        <div><label> Specjalizacja:<input type="text" name="specializationName"/> </label></div>
+        <div><input type="submit" value="Add"/></div>
+</form>
+<h1>Specjalizacje:</h1>
+<ol>
+    <li th:each="specialization : ${specializations}">
+            <label for ="id"><span th:text="${specialization.specializationName}"></span></label>
+            <button th:onclick="'sendSpecializationDelete(\'' + ${specialization.id} + '\')'" id="id">
+                Usuń
+            </button>
+    </li>
+</ol>
+
+</body>
+</html>
