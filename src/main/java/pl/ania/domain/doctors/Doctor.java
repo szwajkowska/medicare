@@ -1,10 +1,12 @@
 package pl.ania.domain.doctors;
 
-import org.hibernate.annotations.*;
 import pl.ania.domain.Specialization;
 
-import javax.persistence.*;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
@@ -12,9 +14,7 @@ public class Doctor {
 
     @Id
     private String id;
-
     private String firstName;
-
     private String lastName;
 
     @ManyToMany

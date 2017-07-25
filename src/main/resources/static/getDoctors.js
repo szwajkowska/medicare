@@ -31,5 +31,4 @@ function getDoctors(id){
 
     }};
     req.send(null);
-        
 }

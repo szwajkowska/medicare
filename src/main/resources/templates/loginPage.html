@@ -8,22 +8,17 @@
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
-
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
 <div th:if="${param.signedIn}">
     You have been signed in.
 </div>
-<!--jak zrobic zeby pokazywało się że się zapisales?-->
-
 <form th:action="@{/login}" method="post">
     <div><label> User Name : <input type="text" name="username"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
     <div><input type="submit" value="Log In"/></div>
-
     <p><a th:href="@{/signIn}">If you want to sing in click here</a></p>
-
 </form>
 </body>
 </html>

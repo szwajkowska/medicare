@@ -23,31 +23,12 @@
 <h1>Specjalizacje:</h1>
 <ol>
     <li th:each="specialization : ${specializations}">
-             <!--<form th:action="@{'/admin/'+${prod.id}}" th:method="delete">-->
             <label for ="id"><span th:text="${specialization.specializationName}"></span></label>
             <button th:onclick="'sendSpecializationDelete(\'' + ${specialization.id} + '\')'" id="id">
                 Usuń
-</button>
-        <!--</form>-->
-
+            </button>
     </li>
 </ol>
 
 </body>
 </html>
-
-<!--<ol>-->
-
-    <!--<li th:each="prod : ${notes}">-->
-
-        <!--<form action="/test/id" th:action="@{'/test/'+${prod.id}}" method="post">-->
-            <!--<label for="note">-->
-                <!--<a th:href="@{'/test/'+${prod.id}}"  th:text="${prod.body}"></a>-->
-            <!--</label>-->
-            <!--<input type="submit" value="delete" id="note">-->
-        <!--</form>-->
-
-
-    <!--</li>-->
-
-<!--</ol>-->

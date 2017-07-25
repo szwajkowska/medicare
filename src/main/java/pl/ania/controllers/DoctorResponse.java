@@ -1,6 +1,7 @@
 package pl.ania.controllers;
 
 public class DoctorResponse {
+
     private  final String id;
     private  final String firstName;
     private  final String lastName;

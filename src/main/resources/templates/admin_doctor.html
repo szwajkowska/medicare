@@ -17,9 +17,9 @@
 </div>
 <h1>Wybierz specjalizację:</h1>
 <select name="specializationId" form="newDoctor">
-    <option th:each="prod : ${specializations}"
-            th:text="${prod.specializationName}"
-            th:value="${prod.id}">
+    <option th:each="specialization : ${specializations}"
+            th:text="${specialization.specializationName}"
+            th:value="${specialization.id}">
 
     </option>
 </select>
@@ -32,10 +32,10 @@
 </form>
 
 <ol>
-    <li th:each="prod : ${specializations}">
-        <span th:text="${prod.specializationName}"></span>
+    <li th:each="specialization : ${specializations}">
+        <span th:text="${specialization.specializationName}"></span>
         <ul>
-            <li th:each="doc : ${prod.doctors}">
+            <li th:each="doc : ${specialization.doctors}">
                 <label for="id">
                     <span th:text="${doc.firstName} + ' ' + ${doc.lastName}"></span>
                 </label>
