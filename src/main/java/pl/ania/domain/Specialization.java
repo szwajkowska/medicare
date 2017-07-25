@@ -2,12 +2,12 @@ package pl.ania.domain;
 
 import org.hibernate.annotations.Cascade;
 import pl.ania.domain.doctors.Doctor;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.List;
+
+import static org.hibernate.annotations.CascadeType.DELETE;
 
 @Entity
 public class Specialization {
@@ -18,7 +18,7 @@ public class Specialization {
     private String specializationName;
 
     @ManyToMany(mappedBy = "specializations")
-    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
+    @Cascade(DELETE)
     private List<Doctor> doctors;
 
 

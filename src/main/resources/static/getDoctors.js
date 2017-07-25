@@ -18,6 +18,8 @@ function getDoctors(id){
 
         clear();
         var sel = document.createElement('select')
+        sel.setAttribute("form", "newVisit");
+        sel.name = "doctorId";
 
         doctors.forEach(function(doctor) {
                 var opt = document.createElement('option')

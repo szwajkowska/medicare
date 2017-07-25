@@ -5,6 +5,7 @@ import pl.ania.domain.Specialization;
 import pl.ania.domain.SpecializationList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -23,8 +24,7 @@ public class DoctorService {
     }
 
     public void addDoctor(String firstName, String lastName, String specializationId){
-        List<Specialization> specializations = new ArrayList<>();
-        specializations.add(specializationList.findById(specializationId));
+        List<Specialization> specializations = Arrays.asList(specializationList.findById(specializationId));
         doctorRepository.save(new Doctor(firstName, lastName, UUID.randomUUID().toString(), specializations));
     }
 
@@ -36,6 +36,10 @@ public class DoctorService {
         return doctorRepository.findAll().stream()
                 .filter(e->e.getSpecializations().equals(specializations))
                 .collect(Collectors.toList());
+    }
+
+    public Doctor findById(String id){
+        return doctorRepository.findOne(id);
     }
 
 

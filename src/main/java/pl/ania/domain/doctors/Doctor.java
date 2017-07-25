@@ -2,8 +2,10 @@ package pl.ania.domain.doctors;
 
 import org.hibernate.annotations.*;
 import pl.ania.domain.Specialization;
+import pl.ania.domain.visits.Visit;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import java.util.List;
 
@@ -23,6 +25,12 @@ public class Doctor {
             inverseJoinColumns = @JoinColumn(name = "specialization_id", referencedColumnName = "id"))
     private List<Specialization> specializations;
 
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private List<Visit> visits;
+
+    public Doctor() {
+    }
+
     public Doctor(String firstName, String lastName, String id, List<Specialization> specializations) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,8 +38,7 @@ public class Doctor {
         this.specializations = specializations;
     }
 
-    public Doctor() {
-    }
+
 
     public List<Specialization> getSpecializations() {
         return specializations;
@@ -47,5 +54,9 @@ public class Doctor {
 
     public String getId() {
         return id;
+    }
+
+    public List<Visit> getVisits() {
+        return visits;
     }
 }

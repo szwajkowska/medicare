@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Admin </title>
+    <script type="text/javascript" src="/delete.js"></script>
+    <script type="text/javascript" src="/getDoctors.js"></script>
+
+</head>
+<body>
+<p>Wróć do <a href="/admin">admin</a></p>
+<div th:if="${param.doctorId_error}">
+    Należy wybrać specjalizację oraz lekarza.
+</div>
+<div th:if="${param.dateOfVisit_error}">
+    Błąd formatu daty!
+</div>
+<div th:if="${param.visitDeleted}">
+    Usunięto termin
+</div>
+
+<div th:if="${dateOfVisit}">
+    Dodano termin: <span th:text="${{dateOfVisit}}"></span>
+    <!--do specjalizacji: <span th:text="${specializationName}"></span>-->
+</div>
+<h1>Wybierz specjalizację:</h1>
+<select onchange="getDoctors(this.value)" name="specializationId">
+    <option></option>
+    <option th:each="specialization : ${specializations}"
+            th:text="${specialization.specializationName}"
+            th:value="${specialization.id}">
+
+    </option>
+</select>
+<div id="doctors"> </div>
+<h1>Dodaj termin:</h1>
+
+<form id="newVisit" th:action="@{/admin/visit}" method="post">
+    <div><label> Termin wizyty<input type="datetime-local" name="dateOfVisit"/> </label></div>
+    <div><input type="submit" value="Add"/></div>
+</form>
+
+<ol>
+    <li th:each="specialization : ${specializations}">
+        <span th:text="${specialization.specializationName}"></span>
+        <ul>
+            <li th:each="doc : ${specialization.doctors}">
+                <span th:text="${doc.firstName} + ' ' + ${doc.lastName}"></span>
+                <ul>
+                    <li th:each="visit : ${doc.visits}">
+                        <label for="id">
+                            <span th:text="${{visit.dateOfVisit}}"></span>
+                        </label>
+                        <button th:onclick="'sendVisitDelete(\'' + ${visit.id} + '\')'" id="id">
+                        Usuń
+                        </button>
+
+                    </li>
+                </ul>
+
+
+            </li>
+
+        </ul>
+
+    </li>
+</ol>
+
+</body>
+</html>

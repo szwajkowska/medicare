@@ -2,7 +2,13 @@ package pl.ania.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pl.ania.domain.SpecializationList;
 import pl.ania.domain.doctors.DoctorService;
 
@@ -37,11 +43,9 @@ public class AdminDoctorController {
     }
 
     @DeleteMapping(path = "/{id}")
-    String deleteDoctor(@PathVariable String id, ModelMap model) {
+    @ResponseBody
+    void deleteDoctor(@PathVariable String id) {
         doctorService.deleteDoctor(id);
-        model.put("specializations", specializationList.findAllSpecializations());
-        model.put("doctorDeleted", true);
-        return "admin_doctor"; //zmieniłam na admin-doctor, usunęłam doctorModel
     }
 
 }
