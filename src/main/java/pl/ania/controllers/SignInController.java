@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.ania.domain.Specialization;
 import pl.ania.security.UserList;
 import pl.ania.security.UserModel;
 import pl.ania.security.UserValidator;

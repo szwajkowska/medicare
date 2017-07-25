@@ -24,5 +24,4 @@ public class DoctorsController {
     List<DoctorResponse> doctorsBySpecializationId(@RequestParam String specializationId) {//request bo przychodzi string z przeglądarki
         return specializationList.findDoctorsBySpecializationId(specializationId);
     }
-    //czy metoda findDoctors... powinna być w specializationList czy w doctorService?
 }

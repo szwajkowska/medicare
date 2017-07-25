@@ -9,14 +9,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Component
 public class DoctorService {
 
     private DoctorRepository doctorRepository;
     private SpecializationList specializationList;
-
 
     DoctorService(DoctorRepository doctorRepository, SpecializationList specializationList) {
         this.doctorRepository = doctorRepository;

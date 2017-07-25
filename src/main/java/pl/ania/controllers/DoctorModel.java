@@ -3,11 +3,8 @@ package pl.ania.controllers;
 public class DoctorModel {
 
     private String firstName;
-
     private String lastName;
-
     private String specializationId;
-
 
     public String getFirstName() {
         return firstName;

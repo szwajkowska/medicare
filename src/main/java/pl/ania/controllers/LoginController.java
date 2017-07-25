@@ -12,6 +12,4 @@ public class LoginController {
     String showLoginPage() {
         return "loginPage";
     }
-
-
 }

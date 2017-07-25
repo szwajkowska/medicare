@@ -2,7 +2,6 @@ package pl.ania.security;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.http.MediaType;
 
 public class UserModel {
 

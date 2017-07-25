@@ -7,7 +7,6 @@ function sendSpecializationDelete(id) {
       }
     };
     req.send(null);
-
 }
 
 function sendDoctorDelete(id) {
@@ -16,13 +15,10 @@ function sendDoctorDelete(id) {
       req.onreadystatechange = function () {
           if(req.readyState == XMLHttpRequest.DONE && req.status == 200) {
             location.href = '/admin/doctor?doctorDeleted';
-
           }
         };
     req.send(null);
-
     }
-
 
 function sendVisitDelete(id) {
     var req = new XMLHttpRequest();
@@ -30,9 +26,7 @@ function sendVisitDelete(id) {
       req.onreadystatechange = function () {
           if(req.readyState == XMLHttpRequest.DONE && req.status == 200) {
         location.href = '/admin/visit?visitDeleted';
-
           }
         };
     req.send(null);
-
     }

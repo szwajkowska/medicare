@@ -14,13 +14,11 @@ public class Specialization {
 
     @Id
     private String id;
-
     private String specializationName;
 
     @ManyToMany(mappedBy = "specializations")
     @Cascade(DELETE)
     private List<Doctor> doctors;
-
 
     public Specialization(String id, String specializationName) {
         this.id = id;
@@ -41,7 +39,6 @@ public class Specialization {
     public String getSpecializationName() {
         return specializationName;
     }
-
 
     public List<Doctor> getDoctors() {
         return doctors;
