@@ -8,9 +8,7 @@ function sendVisitCancel(visitId) {
               alert(req.responseText)
           }
           if(req.readyState == XMLHttpRequest.DONE && req.status == 200) {
-
           location.href = '/my_visits?visitCanceled';
-
           }
         };
         }
@@ -19,10 +17,4 @@ function sendVisitCancel(visitId) {
     req.send(null);
     }
 
-//        req.open('POST', '/my_visits?visitId=' + visitId, true);
-//var r = confirm("Jesteś pewien że chcesz odwołać wizytę?");
-//          if (r == true) {
-//          } else {
-//              txt = "You pressed Cancel!";
-//          }
 

@@ -15,7 +15,6 @@ function getDoctors(id){
     if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
         var doctors = JSON.parse(req.responseText);
         var doc = document.getElementById('doctors');
-
         clear();
         var sel = document.createElement('select')
         sel.setAttribute("form", "newVisit");
@@ -33,7 +32,6 @@ function getDoctors(id){
         if(doctors.length > 0 ) {
         doc.append(sel);
         }
-
     }};
     req.send(null);
 }

@@ -1,7 +1,6 @@
 package pl.ania.security;
 
 import pl.ania.domain.visits.Visit;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;

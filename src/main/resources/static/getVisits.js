@@ -29,18 +29,14 @@ function getVisits(id){
         var t = document.createTextNode("Umów wizytę");
         button.appendChild(t);
         document.body.appendChild(button);
-        button.onclick = function(){setAppointment(visit.id, id);} //dlaczego w przeglądarce nie wyświtla się onclick?
-//        button.addEventListener("click", function(){setAppointment();});
+        button.onclick = function(){setAppointment(visit.id, id);}
         li.appendChild(button);
         ul.append(li);
-
-
         });
         if(visits.length > 0){
         vis.append(ul);
         }
     }
-
     };
     req.send(null);
 }
@@ -54,9 +50,7 @@ function setAppointment(visitId, doctorId){
         alert(req.responseText)
     }
     if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
-
         location.href = '/?visitReserved'
-//        getVisits(doctorId);
     }
     }
     req.send(null);

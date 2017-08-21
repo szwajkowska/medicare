@@ -70,5 +70,4 @@ public class AdminVisitController {
     void deleteVisit(@PathVariable String id) {
         visitService.deleteVisit(id);
     }
-
 }

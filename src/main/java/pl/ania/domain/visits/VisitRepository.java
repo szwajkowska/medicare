@@ -1,7 +1,6 @@
 package pl.ania.domain.visits;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.ania.domain.doctors.Doctor;
 import pl.ania.security.User;
 
 import java.util.Date;

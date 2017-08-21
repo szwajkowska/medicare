@@ -8,7 +8,6 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-
 import java.nio.charset.StandardCharsets;
 
 @SpringBootApplication
@@ -50,12 +49,5 @@ public class Application {
         resourceBundleMessageSource.setBasenames("messages");
         return resourceBundleMessageSource;
     }
-
-//    @Bean
-//    public ObjectMapper getMapper() {
-//        ObjectMapper mapper = new ObjectMapper();
-//        mapper.findAndRegisterModules();
-//        return mapper;
-//    }
 }
 

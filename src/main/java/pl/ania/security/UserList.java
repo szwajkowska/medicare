@@ -1,7 +1,6 @@
 package pl.ania.security;
 
 import org.springframework.stereotype.Component;
-
 import java.util.Optional;
 import java.util.UUID;
 

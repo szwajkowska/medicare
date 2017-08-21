@@ -3,14 +3,12 @@ package pl.ania.domain.visits;
 import pl.ania.domain.Specialization;
 import pl.ania.domain.doctors.Doctor;
 import pl.ania.security.User;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.util.Date;
-import java.util.Optional;
 
 @Entity
 public class Visit {

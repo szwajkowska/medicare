@@ -6,7 +6,6 @@ import pl.ania.domain.SpecializationList;
 import pl.ania.domain.doctors.DoctorService;
 import pl.ania.security.User;
 import pl.ania.security.UserList;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -36,13 +35,6 @@ public class VisitService {
     public void deleteVisit(String id) {
         visitRepository.delete(id);
     }
-
-//    public boolean checkIfExists(Date dateOfVisit){
-//        List<Visit> visits =  visitRepository.findAll().stream()
-//                .filter(e->e.getDateOfVisit().getTime() == (dateOfVisit.getTime()))
-//                .collect(Collectors.toList());
-//        return !visits.isEmpty();
-//    }
 
     public Optional<Visit> getVisit(Date dateOfVisit, String doctorId) {
         return Optional.ofNullable(visitRepository.findByDateOfVisitAndDoctorId(dateOfVisit, doctorId));
