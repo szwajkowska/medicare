@@ -54,8 +54,12 @@ public class AdminVisitController {
             }
             return "redirect:/admin/visit?" + errors;
         }
+        if (visitService.getVisit(visitModel.getDateOfVisit(), visitModel.getDoctorId()).isPresent()){
+            return "redirect:/admin/visit?visitEngaged";
+        }
+
         logger.info("new Visit requested for date {}", visitModel.getDateOfVisit());
-        visitService.addVisit(visitModel.getDateOfVisit(), visitModel.getDoctorId());
+        visitService.addVisit(visitModel.getDateOfVisit(), visitModel.getDoctorId(), visitModel.getSpecializationId());
         modelMap.put("specializations", specializationList.findAllSpecializations());
         modelMap.put("dateOfVisit", visitModel.getDateOfVisit());
         return "admin_visit";

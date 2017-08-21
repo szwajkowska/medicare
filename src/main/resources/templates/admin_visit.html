@@ -5,15 +5,18 @@
     <title>Admin </title>
     <script type="text/javascript" src="/delete.js"></script>
     <script type="text/javascript" src="/getDoctors.js"></script>
-
 </head>
 <body>
+<p><a href="/">Strona główna</a></p>
 <p>Wróć do <a href="/admin">admin</a></p>
 <div th:if="${param.doctorId_error}">
     Należy wybrać specjalizację oraz lekarza.
 </div>
 <div th:if="${param.dateOfVisit_error}">
     Błąd formatu daty!
+</div>
+<div th:if="${param.visitEngaged}">
+    Taki termin już istnieje!
 </div>
 <div th:if="${param.visitDeleted}">
     Usunięto termin
@@ -24,7 +27,7 @@
     <!--do specjalizacji: <span th:text="${specializationName}"></span>-->
 </div>
 <h1>Wybierz specjalizację:</h1>
-<select onchange="getDoctors(this.value)" name="specializationId">
+<select onchange="getDoctors(this.value)" form="newVisit" name="specializationId">
     <option></option>
     <option th:each="specialization : ${specializations}"
             th:text="${specialization.specializationName}"
@@ -48,12 +51,17 @@
                 <span th:text="${doc.firstName} + ' ' + ${doc.lastName}"></span>
                 <ul>
                     <li th:each="visit : ${doc.visits}">
+                        <label for="reserved">
                         <label for="id">
                             <span th:text="${{visit.dateOfVisit}}"></span>
                         </label>
                         <button th:onclick="'sendVisitDelete(\'' + ${visit.id} + '\')'" id="id">
                         Usuń
                         </button>
+                        </label>
+                        <span th:if= ${visit.taken} id="reserved" style="color:red">zarezerwowany przez
+                            <span th:text=${visit.user.username}></span>
+                        </span>
 
                     </li>
                 </ul>

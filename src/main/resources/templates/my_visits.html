@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Wizyty</title>
+    <script type="text/javascript" src="/cancel.js"></script>
+
+</head>
+<body>
+<p><a href="/">Strona główna</a></p>
+<div th:if="${param.visitCanceled}">
+    Odwołano wizytę.
+</div>
+<h1>Moje wizyty</h1>
+    <ul>
+        <li th:each="visit : ${visits}">
+            <div>Termin wizyty:
+                <label for="id">
+                <span th:text="${visit.dateOfVisit}"></span>
+                </label>
+                <button th:onclick="'sendVisitCancel(\'' + ${visit.id} + '\')'" id="id">Odwołaj wizytę</button>
+            </div>
+            <div>Lekarz:
+                <span th:text="${visit.doctor.firstName} +' ' + ${visit.doctor.lastName}"></span>
+            </div>
+            <div>Specjalizacia:
+                <span th:text="${visit.specialization.specializationName}"></span>
+            </div>
+        </li>
+    </ul>
+</body>

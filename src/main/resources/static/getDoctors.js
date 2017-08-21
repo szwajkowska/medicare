@@ -19,7 +19,10 @@ function getDoctors(id){
         clear();
         var sel = document.createElement('select')
         sel.setAttribute("form", "newVisit");
+        sel.setAttribute("onchange", "getVisits(this.value)")
         sel.name = "doctorId";
+                var opt = document.createElement('option')
+                sel.append(opt);
 
         doctors.forEach(function(doctor) {
                 var opt = document.createElement('option')

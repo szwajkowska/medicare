@@ -2,9 +2,13 @@ package pl.ania.domain;
 
 import org.hibernate.annotations.Cascade;
 import pl.ania.domain.doctors.Doctor;
+import pl.ania.domain.visits.Visit;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 import static org.hibernate.annotations.CascadeType.DELETE;

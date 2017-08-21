@@ -1,6 +1,8 @@
 package pl.ania.domain.doctors;
 
 import org.springframework.stereotype.Component;
+import pl.ania.controllers.DoctorResponse;
+import pl.ania.controllers.VisitResponse;
 import pl.ania.domain.Specialization;
 import pl.ania.domain.SpecializationList;
 
@@ -39,6 +41,4 @@ public class DoctorService {
     public Doctor findById(String id){
         return doctorRepository.findOne(id);
     }
-
-
 }
