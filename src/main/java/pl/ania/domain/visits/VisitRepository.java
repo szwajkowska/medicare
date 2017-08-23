@@ -5,9 +5,10 @@ import pl.ania.security.User;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface VisitRepository extends JpaRepository<Visit, String> {
-    Visit findByDateOfVisitAndDoctorId(Date dateOfVisit, String doctorId);
-    List<Visit> findByDoctorIdAndTaken(String doctorId, boolean taken);
+    Optional<Visit> findByDateAndDoctorId(Date date, String doctorId);
+    List<Visit> findByDoctorId(String doctorId);
     List<Visit> findByUser(User user);
 }

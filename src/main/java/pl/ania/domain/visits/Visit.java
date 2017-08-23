@@ -16,9 +16,7 @@ public class Visit {
     @Id
     private String id;
 
-    private Date dateOfVisit;
-
-    private boolean taken;
+    private Date date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "specialization_id")
@@ -32,18 +30,17 @@ public class Visit {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Visit(String id, Date dateOfVisit, Doctor doctor, Specialization specialization) {
+    public Visit(String id, Date date, Doctor doctor, Specialization specialization) {
         this.id = id;
-        this.dateOfVisit = dateOfVisit;
+        this.date = date;
         this.doctor = doctor;
         this.specialization = specialization;
     }
 
-    public Visit(String id, Date dateOfVisit, Doctor doctor, boolean taken, User user, Specialization specialization) {
+    public Visit(String id, Date date, Doctor doctor, User user, Specialization specialization) {
         this.id = id;
-        this.dateOfVisit = dateOfVisit;
+        this.date = date;
         this.doctor = doctor;
-        this.taken = taken;
         this.user = user;
         this.specialization = specialization;
     }
@@ -54,16 +51,12 @@ public class Visit {
         return id;
     }
 
-    public Date getDateOfVisit() {
-        return dateOfVisit;
+    public Date getDate() {
+        return date;
     }
 
     public Doctor getDoctor() {
         return doctor;
-    }
-
-    public boolean isTaken() {
-        return taken;
     }
 
     public User getUser() {

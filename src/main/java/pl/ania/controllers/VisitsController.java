@@ -20,7 +20,6 @@ public class VisitsController {
         this.visitService = visitService;
     }
 
-    @ResponseBody//response bo zwraca odpowiedź
     @GetMapping
     List<VisitResponse> findVisitsByDoctorId(@RequestParam String doctorId) {//request bo przychodzi string z przeglądarki
         return visitService.findAvailableVisitsByDoctorId(doctorId);

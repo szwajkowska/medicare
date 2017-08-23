@@ -37,7 +37,7 @@ public class VisitService {
     }
 
     public Optional<Visit> getVisit(Date dateOfVisit, String doctorId) {
-        return Optional.ofNullable(visitRepository.findByDateOfVisitAndDoctorId(dateOfVisit, doctorId));
+        return visitRepository.findByDateAndDoctorId(dateOfVisit, doctorId);
     }
 
     public Visit getVisitById(String id) {
@@ -47,19 +47,19 @@ public class VisitService {
     public void setVisitTaken(String id, String name) {
         Visit visitById = getVisitById(id);
         Optional<User> user = userList.getUser(name);
-        visitRepository.save(new Visit(id, visitById.getDateOfVisit(), visitById.getDoctor(), true, user.get(), visitById.getSpecialization()));
+        visitRepository.save(new Visit(id, visitById.getDate(), visitById.getDoctor(), user.get(), visitById.getSpecialization()));
     }
 
     public void setVisitCanceled(String id) {
         Visit visitById = getVisitById(id);
-        visitRepository.save(new Visit(id, visitById.getDateOfVisit(), visitById.getDoctor(),
-                false, null, visitById.getSpecialization()));
+        visitRepository.save(new Visit(id, visitById.getDate(), visitById.getDoctor(), null, visitById.getSpecialization()));
     }
 
     public List<VisitResponse> findAvailableVisitsByDoctorId(String doctorId) {
-        return visitRepository.findByDoctorIdAndTaken(doctorId, false)
+        return visitRepository.findByDoctorId(doctorId)
                 .stream()
-                .map(d -> new VisitResponse(d.getId(), d.getDateOfVisit()))
+                .filter(v -> v.getUser() == null)
+                .map(d -> new VisitResponse(d.getId(), d.getDate()))
                 .collect(Collectors.toList());
     }
 

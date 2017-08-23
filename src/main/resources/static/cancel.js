@@ -16,5 +16,3 @@ function sendVisitCancel(visitId) {
     }
     req.send(null);
     }
-
-

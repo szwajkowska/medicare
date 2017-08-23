@@ -21,8 +21,8 @@
     Usunięto termin
 </div>
 
-<div th:if="${dateOfVisit}">
-    Dodano termin: <span th:text="${{dateOfVisit}}"></span>
+<div th:if="${date}">
+    Dodano termin: <span th:text="${{date}}"></span>
     <!--do specjalizacji: <span th:text="${specializationName}"></span>-->
 </div>
 <h1>Wybierz specjalizację:</h1>
@@ -37,7 +37,7 @@
 <h1>Dodaj termin:</h1>
 
 <form id="newVisit" th:action="@{/admin/visit}" method="post">
-    <div><label> Termin wizyty<input type="datetime-local" name="dateOfVisit"/> </label></div>
+    <div><label> Termin wizyty<input type="datetime-local" name="date"/> </label></div>
     <div><input type="submit" value="Add"/></div>
 </form>
 
@@ -51,13 +51,13 @@
                     <li th:each="visit : ${doc.visits}">
                         <label for="reserved">
                         <label for="id">
-                            <span th:text="${{visit.dateOfVisit}}"></span>
+                            <span th:text="${{visit.date}}"></span>
                         </label>
                         <button th:onclick="'sendVisitDelete(\'' + ${visit.id} + '\')'" id="id">
                         Usuń
                         </button>
                         </label>
-                        <span th:if= ${visit.taken} id="reserved" style="color:red">zarezerwowany przez
+                        <span th:if= "${visit.user} != null" id="reserved" style="color:red">zarezerwowany przez
                             <span th:text=${visit.user.username}></span>
                         </span>
                     </li>

@@ -15,7 +15,7 @@
         <li th:each="visit : ${visits}">
             <div>Termin wizyty:
                 <label for="id">
-                <span th:text="${visit.dateOfVisit}"></span>
+                <span th:text="${visit.date}"></span>
                 </label>
                 <button th:onclick="'sendVisitCancel(\'' + ${visit.id} + '\')'" id="id">Odwołaj wizytę</button>
             </div>
