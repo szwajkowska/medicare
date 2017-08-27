@@ -32,6 +32,12 @@ public class Specialization {
         this.specializationName = specializationName;
     }
 
+    public Specialization(String id, String specializationName, List<Doctor> doctors) {
+        this.id = id;
+        this.specializationName = specializationName;
+        this.doctors = doctors;
+    }
+
     public String getId() {
         return id;
     }

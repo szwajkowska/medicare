@@ -59,7 +59,7 @@ public class VisitService {
         return visitRepository.findByDoctorId(doctorId)
                 .stream()
                 .filter(v -> v.getUser() == null)
-                .map(d -> new VisitResponse(d.getId(), d.getDate()))
+                .map(v -> new VisitResponse(v.getId(), v.getDate()))
                 .collect(Collectors.toList());
     }
 
