@@ -3,6 +3,7 @@ package pl.ania.domain;
 import org.hibernate.annotations.Cascade;
 import pl.ania.domain.doctors.Doctor;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.List;
@@ -16,7 +17,7 @@ public class Specialization {
     private String id;
     private String specializationName;
 
-    @ManyToMany(mappedBy = "specializations")
+    @ManyToMany(mappedBy = "specializations", fetch = FetchType.EAGER)
     @Cascade(DELETE)
     private List<Doctor> doctors;
 
