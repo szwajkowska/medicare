@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pl.ania.domain.SpecializationList;
 
 @Controller
@@ -35,11 +36,9 @@ public class AdminSpecializationController {
     }
 
     @DeleteMapping(path = "/{id}")
-    String deleteSpecialization(@PathVariable String id, ModelMap model) {
+    @ResponseBody //żeby wiedział że nie zwraca widoku
+   void deleteSpecialization(@PathVariable String id) {
         specializationList.deleteSpecialization(id);
-        model.put("specializations", specializationList.findAllSpecializations());
-        model.put("specializationDeleted", true);
-        return "admin_specialization";
     }
 
 }

@@ -1,8 +1,12 @@
 package pl.ania.domain.doctors;
 
 import org.springframework.stereotype.Component;
+import pl.ania.controllers.DoctorResponse;
+import pl.ania.controllers.VisitResponse;
 import pl.ania.domain.Specialization;
 import pl.ania.domain.SpecializationList;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -34,5 +38,7 @@ public class DoctorService {
                 .collect(Collectors.toList());
     }
 
-
+    public Doctor findById(String id){
+        return doctorRepository.findOne(id);
+    }
 }

@@ -1,7 +1,11 @@
 package pl.ania.security;
 
+import pl.ania.domain.visits.Visit;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class User {
@@ -13,12 +17,17 @@ public class User {
     @Id
     private String id;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Visit> visits;
 
-    public User(String username, String password, String email) {
+
+    public User(String id,String username, String password, String email) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
     }
+    public User(){}
 
     public String getUsername() {
         return username;

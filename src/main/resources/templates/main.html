@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="pl-PL">
 <head>
     <script type="text/javascript" src="/getDoctors.js"></script>
+    <script type="text/javascript" src="/getVisits.js"></script>
     <meta charset="UTF-8">
     <title>Główna</title>
 </head>
@@ -12,15 +13,23 @@
     <input type="submit" value="Sign Out"/>
 </form>
 
-<p><a href="admin">admin</a></p>
+<p><a href="/admin">admin</a></p>
+<p><a href="/my_visits">Moje wizyty</a></p>
+<div th:if="${param.visitReserved}">
+    Zarezerwowano wizytę.
+</div>
+<p id = "appointment"></p>
+
 <h1>Wybierz specjalizację:</h1>
-<select onchange="getDoctors(this.value)">
+<select onchange="getDoctors(this.value)" name="specializationId">
     <option></option>
     <option th:each="specialization : ${specializations}"
             th:text="${specialization.specializationName}"
-            th:value="${specialization.id}" ></option>
+            th:value="${specialization.id}" >
+    </option>
 </select>
 <div id="doctors"> </div>
+<div id="visits"> </div>
 </body>
 </html>
 

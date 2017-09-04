@@ -1,12 +1,15 @@
 package pl.ania.domain.doctors;
 
 import pl.ania.domain.Specialization;
+import pl.ania.domain.visits.Visit;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
@@ -23,14 +26,17 @@ public class Doctor {
             inverseJoinColumns = @JoinColumn(name = "specialization_id", referencedColumnName = "id"))
     private List<Specialization> specializations;
 
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private List<Visit> visits;
+
+    public Doctor() {
+    }
+
     public Doctor(String firstName, String lastName, String id, List<Specialization> specializations) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
         this.specializations = specializations;
-    }
-
-    public Doctor() {
     }
 
     public List<Specialization> getSpecializations() {
@@ -47,5 +53,9 @@ public class Doctor {
 
     public String getId() {
         return id;
+    }
+
+    public List<Visit> getVisits() {
+        return visits;
     }
 }

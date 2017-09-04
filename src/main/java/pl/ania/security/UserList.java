@@ -1,8 +1,8 @@
 package pl.ania.security;
 
 import org.springframework.stereotype.Component;
-
 import java.util.Optional;
+import java.util.UUID;
 
 @Component
 public class UserList {
@@ -14,7 +14,7 @@ public class UserList {
     }
 
     public void addUser(String username, String password, String email) {
-        userRepository.save(new User(username, password, email));
+        userRepository.save(new User(UUID.randomUUID().toString(), username, password, email));
     }
 
     public Optional<User> getUser(String username) {

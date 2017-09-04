@@ -19,7 +19,7 @@
     <form th:action="@{/admin/specialization}" method="post">
         <div><label> Specjalizacja:<input type="text" name="specializationName"/> </label></div>
         <div><input type="submit" value="Add"/></div>
-</form>
+    </form>
 <h1>Specjalizacje:</h1>
 <ol>
     <li th:each="specialization : ${specializations}">
@@ -29,6 +29,5 @@
             </button>
     </li>
 </ol>
-
 </body>
 </html>
