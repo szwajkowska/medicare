@@ -7,19 +7,19 @@ import java.util.Date;
 public class VisitModel {
 
     @NotNull
-    private Date dateOfVisit;
+    private Date date;
 
     @NotBlank
     private String doctorId;
 
     private String specializationId;
 
-    public Date getDateOfVisit() {
-        return dateOfVisit;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDateOfVisit(Date dateOfVisit) {
-        this.dateOfVisit = dateOfVisit;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getDoctorId() {
