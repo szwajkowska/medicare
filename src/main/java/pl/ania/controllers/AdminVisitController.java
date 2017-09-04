@@ -44,7 +44,6 @@ public class AdminVisitController {
             if (result.getFieldError("doctorId") != null) {
                 logger.info("Errors found {}", result);
                 errors = "doctorId_error";
-//                return "redirect:/admin/visit?doctorId_error";
             }
             if (!errors.equals("")) {
                 errors += "&";

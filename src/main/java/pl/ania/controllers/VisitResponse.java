@@ -6,18 +6,18 @@ public class VisitResponse {
 
     private final String id;
 
-    private final Date dateOfVisit;
+    private final Date date;
 
-    public VisitResponse(String id, Date dateOfVisit) {
+    public VisitResponse(String id, Date date) {
         this.id = id;
-        this.dateOfVisit = dateOfVisit;
+        this.date = date;
     }
 
     public String getId() {
         return id;
     }
 
-    public Date getDateOfVisit() {
-        return dateOfVisit;
+    public Date getDate() {
+        return date;
     }
 }
