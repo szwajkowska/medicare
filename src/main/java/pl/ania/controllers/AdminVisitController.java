@@ -49,7 +49,7 @@ public class AdminVisitController {
             if (!errors.equals("")) {
                 errors += "&";
             }
-            if (result.getFieldError("dateOfVisit") != null) {
+            if (result.getFieldError("date") != null) {
                 errors += "dateOfVisit_error";
             }
             return "redirect:/admin/visit?" + errors;
@@ -61,7 +61,7 @@ public class AdminVisitController {
         logger.info("new Visit requested for date {}", visitModel.getDate());
         visitService.addVisit(visitModel.getDate(), visitModel.getDoctorId(), visitModel.getSpecializationId());
         modelMap.put("specializations", specializationList.findAllSpecializations());
-        modelMap.put("dateOfVisit", visitModel.getDate());
+        modelMap.put("date", visitModel.getDate());
         return "admin_visit";
     }
 

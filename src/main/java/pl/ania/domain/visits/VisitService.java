@@ -27,17 +27,17 @@ public class VisitService {
         this.specializationList = specializationList;
     }
 
-    public void addVisit(Date dateOfVisit, String doctorId, String specializationId) {
+    public void addVisit(Date date, String doctorId, String specializationId) {
         visitRepository.save(new Visit(UUID.randomUUID().toString(),
-                dateOfVisit, doctorService.findById(doctorId), specializationList.findById(specializationId)));
+                date, doctorService.findById(doctorId), specializationList.findById(specializationId)));
     }
 
     public void deleteVisit(String id) {
         visitRepository.delete(id);
     }
 
-    public Optional<Visit> getVisit(Date dateOfVisit, String doctorId) {
-        return visitRepository.findByDateAndDoctorId(dateOfVisit, doctorId);
+    public Optional<Visit> getVisit(Date date, String doctorId) {
+        return visitRepository.findByDateAndDoctorId(date, doctorId);
     }
 
     public Visit getVisitById(String id) {
