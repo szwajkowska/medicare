@@ -65,7 +65,6 @@ public class VisitServiceTest {
 
         //then
         Assertions.assertThat(visits).hasSize(0);
-
     }
 
     @Test
@@ -85,6 +84,4 @@ public class VisitServiceTest {
         Assertions.assertThat(savedCaptor.getValue().getUser().getId()).isEqualTo("1");
 
     }
-
-
 }

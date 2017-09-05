@@ -29,7 +29,6 @@ import pl.ania.security.User;
 import pl.ania.security.UserRepository;
 
 import java.security.Principal;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -115,5 +114,4 @@ public class VisitsControllerTest {
 
         Assertions.assertThat(visitRepository.findOne("1").getUser().getUsername()).isEqualTo(user.getUsername());
     }
-
 }
