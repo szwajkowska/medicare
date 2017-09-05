@@ -1,6 +1,7 @@
 package pl.ania.controllers;
 
 
+import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Before;
@@ -29,6 +30,8 @@ import pl.ania.security.User;
 import pl.ania.security.UserRepository;
 
 import java.security.Principal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -80,7 +83,7 @@ public class VisitsControllerTest {
         User user = new User("1", "name", "xxx", "xxx@xxx");
         userRepository.save(user);
         Visit visit1 = new Visit("2", new Date(), doctor, user, specialization);
-        Visit visit2 = new Visit("3", new Date(2012, 9, 13), doctor, null, specialization);
+        Visit visit2 = new Visit("3", new ISO8601DateFormat().parse("2017-01-01T00:00:00.000+0000"), doctor, null, specialization);
         visitRepository.save(visit1);
         visitRepository.save(visit2);
 
@@ -90,7 +93,7 @@ public class VisitsControllerTest {
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .json("[{'id':'3','date':'3912-10-12T22:00:00.000+0000'}]"));
+                        .json("[{'id':'3','date':'2017-01-01T00:00:00.000+0000'}]"));
     }
 
     @Test
