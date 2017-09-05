@@ -41,7 +41,7 @@ public class AdminControllerTest {
     @Test
     public void shouldShowAdminPage() throws Exception{
         mockMvc.perform(
-                MockMvcRequestBuilders.get("/admin").with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                MockMvcRequestBuilders.get("/admin").with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }

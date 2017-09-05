@@ -51,7 +51,7 @@ public class AdminSpecializationControllerTest {
     public void shouldShowAdminSpecializationPage() throws Exception{
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/admin/specialization")
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
@@ -62,7 +62,7 @@ public class AdminSpecializationControllerTest {
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/admin/specialization")
                         .param("specializationName", "kardiologia")
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
@@ -77,7 +77,7 @@ public class AdminSpecializationControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.delete("/admin/specialization/2")
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 

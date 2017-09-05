@@ -86,7 +86,7 @@ public class VisitsControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/visits?doctorId=10")
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
@@ -108,7 +108,7 @@ public class VisitsControllerTest {
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/visits?visitId=1")
                         .principal(principal)
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 

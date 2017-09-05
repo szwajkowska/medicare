@@ -90,7 +90,7 @@ public class MyVisitsControllerTest {
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/my_visits")
                         .principal(principal)
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
@@ -111,13 +111,13 @@ public class MyVisitsControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/my_visits/1")
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
-        Assertions.assertThat(visitRepository.findAll()).hasSize(1);
+        Assertions.assertThat(visitRepository.count()).isEqualTo(1);
         Assertions.assertThat(visitRepository.findOne("1").getUser()).isEqualTo(null);
-        Assertions.assertThat(doctorRepository.findAll()).hasSize(1);
-        Assertions.assertThat(specializationRepository.findAll()).hasSize(1);
+        Assertions.assertThat(doctorRepository.count()).isEqualTo(1);
+        Assertions.assertThat(specializationRepository.count()).isEqualTo(1);
     }
 }

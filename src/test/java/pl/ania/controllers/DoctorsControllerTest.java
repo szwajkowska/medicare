@@ -68,7 +68,7 @@ public class DoctorsControllerTest {
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/doctors?specializationId=1")
                         .accept(MediaType.APPLICATION_JSON)
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()

@@ -76,7 +76,7 @@ public class AdminVisitControllerTest {
                         .param("date", "2012-11-11T12:12")
                         .param("doctorId", "1")
                         .param("specializationId", "2")
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
@@ -96,7 +96,7 @@ public class AdminVisitControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.delete("/admin/visit/3")
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 

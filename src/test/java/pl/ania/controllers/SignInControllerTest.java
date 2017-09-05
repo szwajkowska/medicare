@@ -55,11 +55,11 @@ public class SignInControllerTest {
                         .param("password", "xxxx")
                         .param("confPassword", "xxxx")
                         .param("email", "xxx@xxx")
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").roles("USER", "ADMIN")))
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection());
 
-        Assertions.assertThat(userRepository.findAll()).hasSize(1);
+        Assertions.assertThat(userRepository.count()).isEqualTo(1);
         Assertions.assertThat(userRepository.findByUsername("user")).isPresent();
     }
 
