@@ -21,7 +21,7 @@ public class Doctor {
     private String firstName;
     private String lastName;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "doctor_specialization",
             joinColumns = @JoinColumn(name = "doctor_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "specialization_id", referencedColumnName = "id"))

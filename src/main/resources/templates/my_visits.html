@@ -8,7 +8,7 @@
 <body>
 <p><a href="/">Strona główna</a></p>
 <div th:if="${param.visitCanceled}">
-    Odwołano wizytę.
+    Odwołano wizytę
 </div>
 <h1>Moje wizyty</h1>
     <ul>
@@ -22,7 +22,7 @@
             <div>Lekarz:
                 <span th:text="${visit.doctor.firstName} +' ' + ${visit.doctor.lastName}"></span>
             </div>
-            <div>Specjalizacia:
+            <div>Specjalizacja:
                 <span th:text="${visit.specialization.specializationName}"></span>
             </div>
         </li>

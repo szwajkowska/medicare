@@ -9,7 +9,7 @@
 <p><a href="/">Strona główna</a></p>
 <p>Wróć do <a href="/admin">admin</a></p>
 <div th:if="${param.doctorId_error}">
-    Należy wybrać specjalizację oraz lekarza.
+    Należy wybrać specjalizację oraz lekarza
 </div>
 <div th:if="${param.dateOfVisit_error}">
     Błąd formatu daty!
@@ -23,7 +23,6 @@
 
 <div th:if="${date}">
     Dodano termin: <span th:text="${{date}}"></span>
-    <!--do specjalizacji: <span th:text="${specializationName}"></span>-->
 </div>
 <h1>Wybierz specjalizację:</h1>
 <select onchange="getDoctors(this.value)" form="newVisit" name="specializationId">
@@ -37,7 +36,7 @@
 <h1>Dodaj termin:</h1>
 
 <form id="newVisit" th:action="@{/admin/visit}" method="post">
-    <div><label> Termin wizyty<input type="datetime-local" name="date"/> </label></div>
+    <div><label> Termin wizyty <input type="datetime-local" name="date"/></label></div>
     <div><input type="submit" value="Add"/></div>
 </form>
 

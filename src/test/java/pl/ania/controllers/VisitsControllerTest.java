@@ -3,76 +3,21 @@ package pl.ania.controllers;
 
 import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
 import org.assertj.core.api.Assertions;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
-import pl.ania.Application;
 import pl.ania.domain.Specialization;
-import pl.ania.domain.SpecializationRepository;
 import pl.ania.domain.doctors.Doctor;
-import pl.ania.domain.doctors.DoctorRepository;
 import pl.ania.domain.visits.Visit;
-import pl.ania.domain.visits.VisitRepository;
 import pl.ania.security.User;
-import pl.ania.security.UserRepository;
 
 import java.security.Principal;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = Application.class)
-@SpringBootTest
-@ActiveProfiles("test")
-public class VisitsControllerTest {
-
-    @Autowired
-    private WebApplicationContext ctx;
-
-    private MockMvc mockMvc;
-
-    @Autowired
-    private VisitRepository visitRepository;
-
-    @Autowired
-    private SpecializationRepository specializationRepository;
-
-    @Autowired
-    private DoctorRepository doctorRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Before
-    public void setUp(){
-        this.mockMvc = MockMvcBuilders
-                .webAppContextSetup(ctx)
-                .build();
-    }
-
-    @After
-    public void clear(){
-        userRepository.deleteAll(); //dlaczego taka kolejność?
-        specializationRepository.deleteAll();
-        doctorRepository.deleteAll();
-        visitRepository.deleteAll();
-
-    }
+public class VisitsControllerTest extends ControllerTest{
 
     @Test
     public void shouldFindVisitsByDoctorId() throws Exception{

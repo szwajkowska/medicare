@@ -5,32 +5,33 @@
     <title>Sign in</title>
 </head>
 <body>
-<p>Give your name, email and password</p>
+<p>Podaj nazwę użytkownika, email oraz hasło</p>
 <form action="#" th:action="@{/signIn}" th:object="${userModel}"
       method="post">
     <table>
         <tr>
-            <td>Username:</td>
+            <td>Nazwa użytkownika:</td>
+<!--czemu gwiazdki?-->
             <td><input type="text" th:field="*{username}" /></td>
-            <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</td>
+            <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Nieprawidłowa nazwa użytkownika!</td>
         </tr>
         <tr>
-            <td>Password:</td>
+            <td>Hasło:</td>
             <td><input type="password" th:field="*{password}" /></td>
-            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Nieprawidłowe hasło!</td>
         </tr>
         <tr>
-            <td>Confirm password:</td>
+            <td>Potwierdź hasło:</td>
             <td><input type="password" th:field="*{confPassword}" /></td>
-            <td th:if="${#fields.hasErrors('confPassword')}" th:errors="*{confPassword}">ConfPassword Error</td>
+            <td th:if="${#fields.hasErrors('confPassword')}" th:errors="*{confPassword}">Nieprawidłowe hasło</td>
         </tr>
         <tr>
             <td>Email:</td>
             <td><input type="email" th:field="*{email}" /></td>
-            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Nieprawidłowy email!</td>
         </tr>
         <tr>
-            <td><button type="submit">Sign in</button></td>
+            <td><button type="submit">Zarejestruj</button></td>
         </tr>
     </table>
 </form>

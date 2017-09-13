@@ -17,7 +17,7 @@ public class Specialization {
     private String id;
     private String specializationName;
 
-    @ManyToMany(mappedBy = "specializations", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "specializations", fetch = FetchType.LAZY)
     @Cascade(DELETE)
     private List<Doctor> doctors;
 

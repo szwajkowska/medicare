@@ -1,51 +1,14 @@
 package pl.ania.controllers;
 
 import org.assertj.core.api.Assertions;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
-import pl.ania.Application;
 import pl.ania.domain.Specialization;
-import pl.ania.domain.SpecializationRepository;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = Application.class)
-@SpringBootTest
-@ActiveProfiles("test")
-public class AdminSpecializationControllerTest {
-
-    @Autowired
-    private WebApplicationContext ctx;
-
-    private MockMvc mockMvc;
-
-    @Autowired
-    SpecializationRepository specializationRepository;
-
-    @Before
-    public void setUp(){
-        this.mockMvc = MockMvcBuilders
-                .webAppContextSetup(ctx)
-                .build();
-    }
-
-    @After
-    public void clear(){
-        specializationRepository.deleteAll();
-    }
+public class AdminSpecializationControllerTest extends ControllerTest {
 
     @Test
     public void shouldShowAdminSpecializationPage() throws Exception{

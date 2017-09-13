@@ -6,9 +6,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class UserModel {
 
 
-    private static final String MESSAGE = "length must have 3 or more chars";
+    private static final String MESSAGE = "wymagane są minimum 3 znaki";
 
-    @NotEmpty(message = "field can't be empty")
+    @NotEmpty(message = "pole nie może być puste")
     @Length(min = 3, message = MESSAGE)
     private String username;
 
