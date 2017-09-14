@@ -32,6 +32,5 @@ public class DoctorsControllerTest extends ControllerTest{
                 .andExpect(MockMvcResultMatchers.content()
                         .json("[{'id':'2','firstName':'Jan','lastName':'Kowalski'}," +
                                 "{'id':'3','firstName':'Adam','lastName':'Nowak'}]"));
-
     }
 }

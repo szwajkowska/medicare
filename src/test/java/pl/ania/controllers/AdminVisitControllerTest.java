@@ -56,7 +56,7 @@ public class AdminVisitControllerTest extends ControllerTest{
         Assertions.assertThat(visitRepository.count() == 0);
         Assertions.assertThat(specializationRepository.count() == 1);
         Assertions.assertThat(doctorRepository.count() == 1);
-//        Assertions.assertThat(doctorRepository.findOne("2").getSpecializations().get(0)
-//                .getSpecializationName()).isEqualTo("chirurgia");
+        Assertions.assertThat(doctorRepository.findOne("2").getSpecializations().get(0)
+                .getSpecializationName()).isEqualTo("chirurgia");
     }
 }

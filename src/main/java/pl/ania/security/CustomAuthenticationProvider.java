@@ -22,18 +22,16 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-
         String name = authentication.getName();
         String password = authentication.getCredentials().toString();
 
         Optional<User> user = userList.getUser(name);
-        if (user.isPresent() && user.get().getPassword().equals(password) ){//get() bo to optional
+        if (user.isPresent() && user.get().getPassword().equals(password) ){
             return new UsernamePasswordAuthenticationToken(
-                    name, password, new ArrayList<>()); //dlaczego tu jest lista?
+                    name, password, new ArrayList<>());
         } else {
             return null;
         }
-
     }
 
     @Override

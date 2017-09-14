@@ -47,5 +47,4 @@ public class AdminDoctorController {
     void deleteDoctor(@PathVariable String id) {
         doctorService.deleteDoctor(id);
     }
-
 }

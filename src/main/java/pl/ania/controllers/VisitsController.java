@@ -21,7 +21,7 @@ public class VisitsController {
     }
 
     @GetMapping
-    List<VisitResponse> findVisitsByDoctorId(@RequestParam String doctorId) {//request bo przychodzi string z przeglądarki
+    List<VisitResponse> findVisitsByDoctorId(@RequestParam String doctorId) {
         return visitService.findAvailableVisitsByDoctorId(doctorId);
     }
 

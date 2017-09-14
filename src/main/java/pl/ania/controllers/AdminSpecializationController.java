@@ -36,9 +36,8 @@ public class AdminSpecializationController {
     }
 
     @DeleteMapping(path = "/{id}")
-    @ResponseBody //żeby wiedział że nie zwraca widoku
+    @ResponseBody
    void deleteSpecialization(@PathVariable String id) {
         specializationList.deleteSpecialization(id);
     }
-
 }

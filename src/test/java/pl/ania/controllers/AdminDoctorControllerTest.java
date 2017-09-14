@@ -37,7 +37,7 @@ public class AdminDoctorControllerTest extends ControllerTest{
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
         Assertions.assertThat(doctorRepository.count() == 1);
-//        Assertions.assertThat(specializationRepository.findOne("1").getDoctors().get(0).getFirstName()).isEqualTo("Jan");
+        Assertions.assertThat(specializationRepository.findOne("1").getDoctors().get(0).getFirstName()).isEqualTo("Jan");
     }
 
     @Test
