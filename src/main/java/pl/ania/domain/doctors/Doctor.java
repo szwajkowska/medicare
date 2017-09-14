@@ -5,6 +5,7 @@ import pl.ania.domain.visits.Visit;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -20,7 +21,7 @@ public class Doctor {
     private String firstName;
     private String lastName;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "doctor_specialization",
             joinColumns = @JoinColumn(name = "doctor_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "specialization_id", referencedColumnName = "id"))

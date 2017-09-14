@@ -23,7 +23,7 @@ function getVisits(id){
 
         visits.forEach(function(visit){
         var li = document.createElement('li');
-        li.textContent = new Date(visit.dateOfVisit).toLocaleString();
+        li.textContent = new Date(visit.date).toLocaleString();
         li.setAttribute("value", visit.id);
         var button = document.createElement('button');
         var t = document.createTextNode("Umów wizytę");

@@ -7,16 +7,16 @@
     <title>Główna</title>
 </head>
 <body>
-<h1>Główna</h1>
-<span>Uzytkownik:</span><span th:text="${username}"></span>
+<h1>Strona główna</h1>
+<span>Użytkownik: </span><span th:text="${username}"></span>
 <form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
+    <input type="submit" value="Wyloguj"/>
 </form>
 
-<p><a href="/admin">admin</a></p>
+<p><a href="/admin">Admin</a></p>
 <p><a href="/my_visits">Moje wizyty</a></p>
 <div th:if="${param.visitReserved}">
-    Zarezerwowano wizytę.
+    Zarezerwowano wizytę
 </div>
 <p id = "appointment"></p>
 

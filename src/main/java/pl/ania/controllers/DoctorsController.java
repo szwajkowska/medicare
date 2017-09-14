@@ -18,9 +18,9 @@ public class DoctorsController {
         this.specializationList = specializationList;
     }
 
-    @ResponseBody//response bo zwraca odpowiedź
+    @ResponseBody
     @GetMapping
-    List<DoctorResponse> doctorsBySpecializationId(@RequestParam String specializationId) {//request bo przychodzi string z przeglądarki
+    List<DoctorResponse> doctorsBySpecializationId(@RequestParam String specializationId) {
         return specializationList.findDoctorsBySpecializationId(specializationId);
     }
 }

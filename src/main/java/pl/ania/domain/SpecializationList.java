@@ -25,9 +25,9 @@ public class SpecializationList {
     }
 
     public List<Specialization> findAllSpecializations(){
-
         return specializationRepository.findAll();
     }
+
     public Specialization findById(String id){
        return specializationRepository.findOne(id);
 

@@ -33,16 +33,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().permitAll();
     }
-
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth
-//                .inMemoryAuthentication()
-//                .withUser("user1").password("1").roles("USER");
-//        auth
-//                .inMemoryAuthentication()
-//                .withUser("user2").password("2").roles("USER");
-//        auth.authenticationProvider(authProvider);
-//
-//    }
 }

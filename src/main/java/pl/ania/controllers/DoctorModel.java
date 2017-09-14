@@ -29,5 +29,4 @@ public class DoctorModel {
     public void setSpecializationId(String specializationId) {
         this.specializationId = specializationId;
     }
-
 }
