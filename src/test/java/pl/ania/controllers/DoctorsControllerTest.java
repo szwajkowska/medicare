@@ -27,7 +27,6 @@ public class DoctorsControllerTest extends ControllerTest{
                 MockMvcRequestBuilders.get("/doctors?specializationId=1")
                         .accept(MediaType.APPLICATION_JSON)
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .json("[{'id':'2','firstName':'Jan','lastName':'Kowalski'}," +

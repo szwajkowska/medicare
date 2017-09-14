@@ -35,7 +35,6 @@ public class VisitsControllerTest extends ControllerTest{
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/visits?doctorId=10")
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .json("[{'id':'3','date':'2017-01-01T00:00:00.000+0000'}]"));
@@ -57,7 +56,6 @@ public class VisitsControllerTest extends ControllerTest{
                 MockMvcRequestBuilders.post("/visits?visitId=1")
                         .principal(principal)
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
         Assertions.assertThat(visitRepository.findOne("1").getUser().getUsername()).isEqualTo(user.getUsername());

@@ -19,7 +19,6 @@ public class SignInControllerTest extends ControllerTest{
                         .param("confPassword", "xxxx")
                         .param("email", "xxx@xxx")
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection());
 
         Assertions.assertThat(userRepository.count()).isEqualTo(1);

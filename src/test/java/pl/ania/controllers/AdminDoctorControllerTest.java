@@ -18,7 +18,6 @@ public class AdminDoctorControllerTest extends ControllerTest{
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/admin/doctor")
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
@@ -50,10 +49,9 @@ public class AdminDoctorControllerTest extends ControllerTest{
         mockMvc.perform(
                 MockMvcRequestBuilders.delete("/admin/doctor/2")
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
-        Assertions.assertThat(doctorRepository.count() == 0);
-        Assertions.assertThat(specializationRepository.count() == 1);
+        Assertions.assertThat(doctorRepository.count()).isEqualTo(0);
+        Assertions.assertThat(specializationRepository.count()).isEqualTo(1);
     }
 }

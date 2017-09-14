@@ -39,7 +39,6 @@ public class MyVisitsControllerTest extends ControllerTest{
                 MockMvcRequestBuilders.get("/my_visits")
                         .principal(principal)
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
         Assertions.assertThat(userRepository.findOne("1").getVisits()).hasSize(2);
@@ -60,7 +59,6 @@ public class MyVisitsControllerTest extends ControllerTest{
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/my_visits/1")
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
         Assertions.assertThat(visitRepository.count()).isEqualTo(1);

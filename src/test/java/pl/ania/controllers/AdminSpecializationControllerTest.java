@@ -26,10 +26,9 @@ public class AdminSpecializationControllerTest extends ControllerTest {
                 MockMvcRequestBuilders.post("/admin/specialization")
                         .param("specializationName", "kardiologia")
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
-        Assertions.assertThat(specializationRepository.count() == 1);
+        Assertions.assertThat(specializationRepository.count()).isEqualTo(1);
         Assertions.assertThat(specializationRepository.findAll().get(0).getSpecializationName().equals("kardiologia"));
     }
 
@@ -41,9 +40,8 @@ public class AdminSpecializationControllerTest extends ControllerTest {
         mockMvc.perform(
                 MockMvcRequestBuilders.delete("/admin/specialization/2")
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
-        Assertions.assertThat(specializationRepository.count() == 0);
+        Assertions.assertThat(specializationRepository.count()).isEqualTo(0);
     }
 }

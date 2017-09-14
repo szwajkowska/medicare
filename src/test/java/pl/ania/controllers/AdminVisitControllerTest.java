@@ -30,10 +30,9 @@ public class AdminVisitControllerTest extends ControllerTest{
                         .param("doctorId", "1")
                         .param("specializationId", "2")
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
-        Assertions.assertThat(visitRepository.count() == 1);
+        Assertions.assertThat(visitRepository.count()).isEqualTo(1);
         Assertions.assertThat(specializationRepository.findOne("2").getSpecializationName()).isEqualTo("kardiologia");
         Assertions.assertThat(doctorRepository.findOne("1").getFirstName()).isEqualTo("Jan");
     }
@@ -50,12 +49,11 @@ public class AdminVisitControllerTest extends ControllerTest{
         mockMvc.perform(
                 MockMvcRequestBuilders.delete("/admin/visit/3")
                         .with(SecurityMockMvcRequestPostProcessors.user("admin")))
-                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
-        Assertions.assertThat(visitRepository.count() == 0);
-        Assertions.assertThat(specializationRepository.count() == 1);
-        Assertions.assertThat(doctorRepository.count() == 1);
+        Assertions.assertThat(visitRepository.count()).isEqualTo(0);
+        Assertions.assertThat(specializationRepository.count()).isEqualTo(1);
+        Assertions.assertThat(doctorRepository.count()).isEqualTo(1);
         Assertions.assertThat(doctorRepository.findOne("2").getSpecializations().get(0)
                 .getSpecializationName()).isEqualTo("chirurgia");
     }
