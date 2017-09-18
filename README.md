@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/szwajkowska/medicare.svg?branch=test)](https://travis-ci.org/szwajkowska/medicare.svg?branch=test)
+
 # Medicare
 
 Repository contains project, which is a simple medical portal.
@@ -20,6 +23,8 @@ To storage dates I have used MySQL database.
     }
 
 ## Deployment
+
+To deploy project I have used Heroku. As it is a free platform, page loading can last a bit longer.
 
 https://whispering-wave-19025.herokuapp.com
 
