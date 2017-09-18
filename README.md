@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/szwajkowska/medicare.svg?branch=test)](https://travis-ci.org/szwajkowska/medicare.svg?branch=test)
+[![Build Status](https://travis-ci.org/szwajkowska/medicare.svg?branch=test)](https://travis-ci.org/szwajkowska/medicare)
 
 # Medicare
 
