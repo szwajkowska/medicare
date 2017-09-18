@@ -47,6 +47,7 @@ public class Application {
     ResourceBundleMessageSource resourceBundleMessageSource() {
         ResourceBundleMessageSource resourceBundleMessageSource = new ResourceBundleMessageSource();
         resourceBundleMessageSource.setBasenames("messages");
+        resourceBundleMessageSource.setDefaultEncoding(StandardCharsets.UTF_8.name());
         return resourceBundleMessageSource;
     }
 }
