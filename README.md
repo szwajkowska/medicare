@@ -2,11 +2,10 @@
 [![Build Status](https://travis-ci.org/szwajkowska/medicare.svg?branch=test)](https://travis-ci.org/szwajkowska/medicare)
 
 # Medicare
-
 Repository contains project, which is a simple medical portal.
 Application allows to choose specialization, doctor and date of visit. User can log in, makes appointments and cancel them.
 There is also a page, where admin can add and delete visits to the selected specialization and doctor. 
-To storage dates I have used MySQL database.
+To storage data I have used MySQL database.
 
 <b>Code example</b>
 
@@ -30,7 +29,7 @@ https://whispering-wave-19025.herokuapp.com
 
 ## Tests
 
-Project contains JUnit tests, wchich are run at each commit using Travis. They are testing each controller and servise methods.
+Project contains JUnit tests, wchich are run at each commit using Travis CI. They are testing each controller and servise methods.
 
 <b>Controller test example</b>
 
