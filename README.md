@@ -3,7 +3,7 @@
 
 # Medicare
 Repository contains project, which is a simple medical portal.
-Application allows to choose specialization, doctor and date of visit. User can log in, makes appointments and cancel them.
+Application allows to choose specialization, doctor and date of visit. User can log in, make appointments and cancel them.
 There is also a page, where admin can add and delete visits to the selected specialization and doctor. 
 To storage data I have used MySQL database.
 
@@ -23,13 +23,20 @@ To storage data I have used MySQL database.
 
 ## Deployment
 
-To deploy project I have used Heroku. As it is a free platform, page loading can last a bit longer.
+To deploy project I have used Heroku. As it is a free platform, page loading can last a bit longer. 
+To log in you can sign in and create new user or use an account: 
+* login: user1
+* password: user1
+
 
 https://whispering-wave-19025.herokuapp.com
 
 ## Tests
 
-Project contains JUnit tests, wchich are run at each commit using Travis CI. They are testing each controller and servise methods.
+Project contains JUnit tests, which are run at each commit using Travis CI. They are testing each controller and servise methods.
+To execute tests run command:
+
+    ./gradlew clean test
 
 <b>Controller test example</b>
 
