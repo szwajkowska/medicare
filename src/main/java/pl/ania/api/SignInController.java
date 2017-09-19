@@ -1,4 +1,4 @@
-package pl.ania.controllers;
+package pl.ania.api;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

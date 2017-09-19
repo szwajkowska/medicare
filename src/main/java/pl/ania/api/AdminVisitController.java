@@ -1,4 +1,4 @@
-package pl.ania.controllers;
+package pl.ania.api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

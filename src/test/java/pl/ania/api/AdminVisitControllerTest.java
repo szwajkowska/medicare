@@ -1,11 +1,10 @@
-package pl.ania.controllers;
+package pl.ania.api;
 
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import pl.ania.domain.Specialization;
 import pl.ania.domain.doctors.Doctor;

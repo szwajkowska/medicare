@@ -1,10 +1,8 @@
-package pl.ania.controllers;
+package pl.ania.api;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 public class SignInControllerTest extends ControllerTest{
@@ -16,9 +14,7 @@ public class SignInControllerTest extends ControllerTest{
                 MockMvcRequestBuilders.post("/signIn")
                         .param("username", "user")
                         .param("password", "xxxx")
-                        .param("confPassword", "xxxx")
-                        .param("email", "xxx@xxx")
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin")))
+                        .param("confPassword", "xxxx"))
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection());
 
         Assertions.assertThat(userRepository.count()).isEqualTo(1);

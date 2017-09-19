@@ -1,4 +1,4 @@
-package pl.ania.controllers;
+package pl.ania.api;
 
 public class DoctorResponse {
 

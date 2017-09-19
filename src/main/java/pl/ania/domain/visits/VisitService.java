@@ -1,7 +1,7 @@
 package pl.ania.domain.visits;
 
 import org.springframework.stereotype.Component;
-import pl.ania.controllers.VisitResponse;
+import pl.ania.api.VisitResponse;
 import pl.ania.domain.SpecializationList;
 import pl.ania.domain.doctors.DoctorService;
 import pl.ania.security.User;

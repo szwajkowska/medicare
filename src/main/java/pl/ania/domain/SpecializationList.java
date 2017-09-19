@@ -1,7 +1,7 @@
 package pl.ania.domain;
 
 import org.springframework.stereotype.Component;
-import pl.ania.controllers.DoctorResponse;
+import pl.ania.api.DoctorResponse;
 
 import java.util.List;
 import java.util.UUID;

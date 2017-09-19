@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import pl.ania.controllers.DoctorResponse;
+import pl.ania.api.DoctorResponse;
 import pl.ania.domain.doctors.Doctor;
 
 import java.util.Arrays;

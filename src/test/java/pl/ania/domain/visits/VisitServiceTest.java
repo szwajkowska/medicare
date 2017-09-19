@@ -7,7 +7,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import pl.ania.controllers.VisitResponse;
+import pl.ania.api.VisitResponse;
 import pl.ania.domain.SpecializationList;
 import pl.ania.domain.doctors.DoctorService;
 import pl.ania.security.User;
