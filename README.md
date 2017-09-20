@@ -5,7 +5,7 @@
 Repository contains project, which is a simple medical portal.
 Application allows to choose specialization, doctor and date of visit. User can log in, make appointments and cancel them.
 There is also a page, where admin can add and delete visits to the selected specialization and doctor. 
-To storage data I have used MySQL database.
+To store data I have used MySQL database.
 
 <b>Code example</b>
 
