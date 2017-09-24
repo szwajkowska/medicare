@@ -18,7 +18,6 @@ public class DoctorsController {
         this.specializationList = specializationList;
     }
 
-    @ResponseBody
     @GetMapping
     List<DoctorResponse> doctorsBySpecializationId(@RequestParam String specializationId) {
         return specializationList.findDoctorsBySpecializationId(specializationId);
