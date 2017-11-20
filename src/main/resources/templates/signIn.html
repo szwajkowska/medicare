@@ -11,7 +11,6 @@
     <table>
         <tr>
             <td>Nazwa użytkownika:</td>
-<!--czemu gwiazdki?-->
             <td><input type="text" th:field="*{username}" /></td>
             <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Nieprawidłowa nazwa użytkownika!</td>
         </tr>

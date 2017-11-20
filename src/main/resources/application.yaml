@@ -3,4 +3,11 @@ spring.datasource.url: jdbc:mysql://sql11.freesqldatabase.com:3306/sql11194753
 spring.datasource.username: sql11194753
 spring.datasource.password: ItUsYbAQeW
 spring.jpa.show-sql: true
+#spring.jpa.hibernate.ddl-auto: update
+#spring.datasource.url: jdbc:postgresql://127.0.0.1:5432/incidents
+#spring.datasource.username: postgres
+#spring.datasource.password: Adgj97531
+#spring.datasource.driverClassName: org.postgresql.Driver
+#spring.jpa.show-sql: true
+#spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
 

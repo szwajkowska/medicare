@@ -9,7 +9,7 @@ import pl.ania.domain.SpecializationList;
 import java.util.List;
 
 @RestController
-@RequestMapping("doctors")
+@RequestMapping("/doctors")
 public class DoctorsController {
 
     private SpecializationList specializationList;

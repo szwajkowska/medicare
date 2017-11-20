@@ -18,7 +18,7 @@ function getDoctors(id){
         clear();
         var sel = document.createElement('select')
         sel.setAttribute("form", "newVisit");
-        sel.setAttribute("onchange", "getVisits(this.value)")
+        sel.setAttribute("onchange", "getVisits(this.value)");
         sel.name = "doctorId";
                 var opt = document.createElement('option')
                 sel.append(opt);
@@ -33,5 +33,5 @@ function getDoctors(id){
         doc.append(sel);
         }
     }};
-    req.send(null);
+    req.send(null);//co to robi?
 }

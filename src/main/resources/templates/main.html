@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Strona główna</h1>
-<span>Użytkownik: </span><span th:text="${username}"></span>
+<span>Użytkownik: </span><span id="userID" th:text="${username}"></span>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Wyloguj"/>
 </form>

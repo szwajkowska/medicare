@@ -10,7 +10,7 @@ function getVisits(id){
     req.open('GET', '/visits?doctorId=' + id, true);
     req.onreadystatechange = function(){
     if (req.readyState === XMLHttpRequest.DONE && req.status === 500){
-        clearVisits(); //dlaczego tu jest clear?
+        clearVisits();
     }
     if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
         var visits = JSON.parse(req.responseText);
